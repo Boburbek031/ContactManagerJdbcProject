@@ -13,6 +13,8 @@ public class Main {
 
 
     public static void start() {
+        DatabaseUtil.createTable();
+
         boolean b = true;
 
         while (b) {

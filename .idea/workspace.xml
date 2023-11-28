@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="Contact Manager project is opened">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Requirements.txt" afterDir="false" />
+    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="menu section is added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/DatabaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/DatabaseUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +40,11 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -75,7 +80,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701186057816</updated>
-      <workItem from="1701186058887" duration="1694000" />
+      <workItem from="1701186058887" duration="3401000" />
     </task>
     <task id="LOCAL-00001" summary="Contact Manager project is opened">
       <option name="closed" value="true" />
@@ -85,7 +90,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701186253219</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="menu section is added">
+      <option name="closed" value="true" />
+      <created>1701187833579</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701187833579</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +106,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Contact Manager project is opened" />
-    <option name="LAST_COMMIT_MESSAGE" value="Contact Manager project is opened" />
+    <MESSAGE value="menu section is added" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu section is added" />
   </component>
 </project>

@@ -1,0 +1,18 @@
+***ContactManger Project ***
+Contact (name, surname, phone (unique))
+Project konsoldan boshqariladigan bo'lishi kerak.
+Yangi Contact qo'shilgandan keyin konsolga xabar ko'rsating. Phone ragam takrorlanmas bo'lishi kerak. Contact -ni o'chirganizdan keyin konsolga xabar ko'rsating.
+Agar Contact topilamasa Mazgi Kontact yo'qku' habar chiqarsin.
+** Menu **
+1. Add Contact
+Enter name:
+Enter surname :
+Enter phone:
+2. Contact List
+name, surname, phone
+3. Delete Contact
+Enter phone:
+4. Search Contact By (name, surname, phone)
+
+        Enter query:
+0. Exit

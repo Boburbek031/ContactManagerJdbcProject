@@ -12,6 +12,8 @@ public class Main {
         // Dexqonchasiga aytganda, bitta class o'ziga tegishli narsalarni olib javobgarlilarni olib
         // shu ishini chotki qilishi kerak.
 
+         // package larni nomi kichkina xarflar bilan yozilishi kerak.
+
         ContactController controller = new ContactController();
         controller.start();
 

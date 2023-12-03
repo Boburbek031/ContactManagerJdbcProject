@@ -1,6 +1,6 @@
 package uz.ali.service;
 
-import uz.ali.entity.Contact;
+import uz.ali.dto.ContactDto;
 import uz.ali.repository.ContactRepository;
 
 import java.util.List;
@@ -11,47 +11,47 @@ public class ContactService {
 
     private ContactRepository contactRepository = new ContactRepository();
 
-    public void addContact(Contact contact) {
-        Contact contactExists = contactRepository.getByPhoneNumber(contact.getPhoneNumber());
-        if (contactExists != null) {
-            System.out.println("Bu telefon raqamlik Contact bor.");
+    public void addContact(ContactDto contactDto) {
+        ContactDto contactDtoExists = contactRepository.getByPhoneNumber(contactDto.getPhoneNumber());
+        if (contactDtoExists != null) {
+            System.out.println("Bu telefon raqamlik ContactDto bor.");
         } else {
-            boolean savedContact = contactRepository.saveContact(contact);
+            boolean savedContact = contactRepository.saveContact(contactDto);
             if (savedContact) {
-                System.out.println("Contact added");
+                System.out.println("ContactDto added");
             } else
                 System.out.println("Error!");
         }
     }
 
     public void contactList() {
-        List<Contact> allContacts = contactRepository.getAllContacts();
+        List<ContactDto> allContactDtos = contactRepository.getAllContacts();
         // contact bo'masa logika yoz.
         // search methodida shuni yana ishlatyapman shunga boshqa bitta method qilib
         // ikkita joyda ishlatadigan qilib optimizatsiya qilib qo'y
-        for (Contact allContact : allContacts) {
-            System.out.println("Name: " + allContact.getName() + ", Surname: " + allContact.getSurname()
-                    + ", Phone number: " + allContact.getPhoneNumber());
+        for (ContactDto allContactDto : allContactDtos) {
+            System.out.println("Name: " + allContactDto.getName() + ", Surname: " + allContactDto.getSurname()
+                    + ", Phone number: " + allContactDto.getPhoneNumber());
         }
     }
 
 
     public void deleteContact(String phoneNumber) {
-//        Contact byPhoneNumber = contactRepository.getByPhoneNumber(phoneNumber);
+//        ContactDto byPhoneNumber = contactRepository.getByPhoneNumber(phoneNumber);
 //        if (byPhoneNumber != null) {
-        System.out.println(contactRepository.deleteContactFromDb(phoneNumber) == 1 ? "Contact is deleted "
-                : "Contact is not deleted!");
+        System.out.println(contactRepository.deleteContactFromDb(phoneNumber) == 1 ? "ContactDto is deleted "
+                : "ContactDto is not deleted!");
         //        else {
-//            System.out.println("There is no such Contact!");
+//            System.out.println("There is no such ContactDto!");
 //        }
     }
 
 
     public void searchContact(String searchTerm) {
-        List<Contact> contactList = contactRepository.searchContacts(searchTerm);
-        for (Contact allContact : contactList) {
-            System.out.println("Name: " + allContact.getName() + ", Surname: " + allContact.getSurname()
-                    + ", Phone number: " + allContact.getPhoneNumber());
+        List<ContactDto> contactDtoList = contactRepository.searchContacts(searchTerm);
+        for (ContactDto allContactDto : contactDtoList) {
+            System.out.println("Name: " + allContactDto.getName() + ", Surname: " + allContactDto.getSurname()
+                    + ", Phone number: " + allContactDto.getPhoneNumber());
         }
 
     }

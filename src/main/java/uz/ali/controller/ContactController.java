@@ -1,7 +1,7 @@
 package uz.ali.controller;
 
 import uz.ali.db.DatabaseUtil;
-import uz.ali.entity.Contact;
+import uz.ali.dto.ContactDto;
 import uz.ali.service.ContactService;
 
 import java.util.Scanner;
@@ -28,11 +28,11 @@ public class ContactController {
                     addContact();
                     break;
                 case 2:
-//                    System.out.println("Contact List");
+//                    System.out.println("ContactDto List");
                     contactList();
                     break;
                 case 3:
-//                    System.out.println("Delete Contact");
+//                    System.out.println("Delete ContactDto");
                     deleteContact();
                     break;
                 case 4:
@@ -53,9 +53,9 @@ public class ContactController {
 
 
     public void showMenu() {
-        System.out.println("\t****** Welcome to Contact Manager project **** \n \t\t\t ***** Menu ***** ");
+        System.out.println("\t****** Welcome to ContactDto Manager project **** \n \t\t\t ***** Menu ***** ");
         System.out.println("1. Add contact");
-        System.out.println("2. Contact list");
+        System.out.println("2. ContactDto list");
         System.out.println("3. Delete contact");
         System.out.println("4. Search contact");
         System.out.println("0. Exit");
@@ -75,7 +75,7 @@ public class ContactController {
         String surname = scannerStr.next();
         System.out.print("Enter phone number: ");
         String phone_number = scannerStr.next();
-        contactService.addContact(new Contact(name, surname, phone_number));
+        contactService.addContact(new ContactDto(name, surname, phone_number));
     }
 
     public void contactList() {

@@ -1,7 +1,7 @@
 package uz.ali.repository;
 
 import uz.ali.entity.Contact;
-import uz.ali.DatabaseUtil;
+import uz.ali.db.DatabaseUtil;
 
 import java.sql.*;
 import java.util.LinkedList;

@@ -1,6 +1,6 @@
 package uz.ali.controller;
 
-import uz.ali.DatabaseUtil;
+import uz.ali.db.DatabaseUtil;
 import uz.ali.entity.Contact;
 import uz.ali.service.ContactService;
 
@@ -8,8 +8,10 @@ import java.util.Scanner;
 
 // Controller classini asosiy vazifasi, user dan malumotlarni olib Service classiga bervorish.
 public class ContactController {
-    final static Scanner scanner = new Scanner(System.in);
-
+    // Optimizatsiya qilingan variyamnti ham vaqtdan yutamiz ham hotiradan
+    private ContactService contactService = new ContactService();
+    private Scanner scannerNum = new Scanner(System.in);
+    private Scanner scannerStr = new Scanner(System.in);
 
     public void start() {
         DatabaseUtil.createTable();
@@ -63,38 +65,34 @@ public class ContactController {
 
     public int getAction() {
         System.out.print("Enter action: ");
-        return scanner.nextInt();
+        return scannerNum.nextInt();
     }
 
     public void addContact() {
         System.out.print("Enter name: ");
-        String name = scanner.next();
+        String name = scannerStr.next();
         System.out.print("Enter surname: ");
-        String surname = scanner.next();
+        String surname = scannerStr.next();
         System.out.print("Enter phone number: ");
-        String phone_number = scanner.next();
-        ContactService contactService = new ContactService();
+        String phone_number = scannerStr.next();
         contactService.addContact(new Contact(name, surname, phone_number));
     }
 
     public void contactList() {
-        ContactService contactService = new ContactService();
         contactService.contactList();
     }
 
 
     public void deleteContact() {
         System.out.print("Enter phone number:");
-        String phoneNumber = scanner.next();
-        ContactService contactService = new ContactService();
+        String phoneNumber = scannerStr.next();
         contactService.deleteContact(phoneNumber);
     }
 
 
     public void searchContact() {
         System.out.print("Enter query: ");
-        String searchTerm = scanner.next();
-        ContactService contactService = new ContactService();
+        String searchTerm = scannerStr.next();
         contactService.searchContact(searchTerm);
     }
 

@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="searchContacts() and searchContact()methods added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/uz/ali/service/ContactService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/ContactDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/entity/Contact.java" afterDir="false" />
+    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="service package added and logical methods in main replaced to ContactService class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/uz/ali/controller/ContactController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/Repo/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/service/ContactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/service/ContactService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +102,7 @@
       <updated>1701186057816</updated>
       <workItem from="1701186058887" duration="4221000" />
       <workItem from="1701580917174" duration="9701000" />
-      <workItem from="1701633410644" duration="3193000" />
+      <workItem from="1701633410644" duration="4843000" />
     </task>
     <task id="LOCAL-00001" summary="Contact Manager project is opened">
       <option name="closed" value="true" />
@@ -154,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701625479591</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="service package added and logical methods in main replaced to ContactService class">
+      <option name="closed" value="true" />
+      <created>1701637336294</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701637336294</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +184,7 @@
     <MESSAGE value="addContact() and contactList() methods added" />
     <MESSAGE value="deleteContact(),getByPhoneNumber(), and deleteContactFromDb() methods added" />
     <MESSAGE value="searchContacts() and searchContact()methods added" />
-    <option name="LAST_COMMIT_MESSAGE" value="searchContacts() and searchContact()methods added" />
+    <MESSAGE value="service package added and logical methods in main replaced to ContactService class" />
+    <option name="LAST_COMMIT_MESSAGE" value="service package added and logical methods in main replaced to ContactService class" />
   </component>
 </project>

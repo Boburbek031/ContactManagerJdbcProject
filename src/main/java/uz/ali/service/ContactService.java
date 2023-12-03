@@ -6,6 +6,7 @@ import uz.ali.repository.ContactRepository;
 import java.util.List;
 
 // Service class da biznes logika yoziladi, asosiy kod va mohiyat shu classda yoziladi.
+// Asosan Service classi Repository bilan aloqa qilib ishledi
 public class ContactService {
 
     public void addContact(Contact contact) {

@@ -10,6 +10,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+
+
         start();
 
     }
@@ -38,7 +40,8 @@ public class Main {
                     deleteContact();
                     break;
                 case 4:
-                    System.out.println("Search");
+//                    System.out.println("Search");
+                    searchContact();
                     break;
                 case 0:
                     System.out.println("Exit");
@@ -88,6 +91,8 @@ public class Main {
         ContactRepository contactRepository = new ContactRepository();
         List<ContactDto> allContacts = contactRepository.getAllContacts();
         // contact bo'masa logika yoz.
+        // search methodida shuni yana ishlatyapman shunga boshqa bitta method qilib
+        // ikkita joyda ishlatadigan qilib optimizatsiya qilib qo'y
         for (ContactDto allContact : allContacts) {
             System.out.println("Name: " + allContact.getName() + ", Surname: " + allContact.getSurname()
                     + ", Phone number: " + allContact.getPhoneNumber());
@@ -103,11 +108,24 @@ public class Main {
 //        if (byPhoneNumber != null) {
         System.out.println(contactRepository.deleteContactFromDb(phoneNumber) == 1 ? "Contact is deleted "
                 : "Contact is not deleted!");
-    }
-//        else {
+        //        else {
 //            System.out.println("There is no such Contact!");
 //        }
+    }
 
+
+    public static void searchContact() {
+        System.out.print("Enter query: ");
+        String searchTerm = scanner.next();
+
+        ContactRepository contactRepository = new ContactRepository();
+        List<ContactDto> contactDtoList = contactRepository.searchContacts(searchTerm);
+        for (ContactDto allContact : contactDtoList) {
+            System.out.println("Name: " + allContact.getName() + ", Surname: " + allContact.getSurname()
+                    + ", Phone number: " + allContact.getPhoneNumber());
+        }
+
+    }
 
 
 }

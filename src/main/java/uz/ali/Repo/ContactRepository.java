@@ -81,4 +81,34 @@ public class ContactRepository {
     }
 
 
+    public List<ContactDto> searchContacts(String searchTerm) {
+        // ali ==> alish, alisher, alixon, alisattor ....
+        // 066 ==> 0662414, 0661475 ....
+
+        ContactDto contact = null;
+        List<ContactDto> contacts = new LinkedList<>();
+        try (Connection connection = DatabaseUtil.getConnection()) {
+            // Prepare the SQL query to search for contacts (case-insensitive)
+            String query = "SELECT * FROM contact WHERE LOWER(name) LIKE LOWER(?) OR LOWER(surname) LIKE LOWER(?) OR phone_number LIKE ?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, "%" + searchTerm + "%");
+            preparedStatement.setString(2, "%" + searchTerm + "%");
+            preparedStatement.setString(3, "%" + searchTerm + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                // Assuming Contact class with appropriate fields (name, surname, phone number)
+                contact = new ContactDto();
+                contact.setId(resultSet.getInt("id"));
+                contact.setName(resultSet.getString("name"));
+                contact.setSurname(resultSet.getString("surname"));
+                contact.setPhoneNumber(resultSet.getString("phone_number"));
+                contacts.add(contact);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return contacts;
+    }
+
+
 }

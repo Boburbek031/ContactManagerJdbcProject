@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="addContact() and contactList() methods added">
+    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="deleteContact(),getByPhoneNumber(), and deleteContactFromDb() methods added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/Repo/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/Repo/ContactRepository.java" afterDir="false" />
@@ -58,7 +58,7 @@
       <recent name="uz.ali" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="uz.ali.Main" />
       <module name="ContactManagerJdbcProject" />
@@ -72,8 +72,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uz.ali.Test" />
+      <module name="ContactManagerJdbcProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uz.ali.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -87,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701186057816</updated>
       <workItem from="1701186058887" duration="4221000" />
-      <workItem from="1701580917174" duration="4959000" />
+      <workItem from="1701580917174" duration="8760000" />
     </task>
     <task id="LOCAL-00001" summary="Contact Manager project is opened">
       <option name="closed" value="true" />
@@ -121,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701583567943</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="deleteContact(),getByPhoneNumber(), and deleteContactFromDb() methods added">
+      <option name="closed" value="true" />
+      <created>1701621078274</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701621078274</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +165,7 @@
     <MESSAGE value="menu section is added" />
     <MESSAGE value="Create table method and query is added. Connection with database is launched" />
     <MESSAGE value="addContact() and contactList() methods added" />
-    <option name="LAST_COMMIT_MESSAGE" value="addContact() and contactList() methods added" />
+    <MESSAGE value="deleteContact(),getByPhoneNumber(), and deleteContactFromDb() methods added" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleteContact(),getByPhoneNumber(), and deleteContactFromDb() methods added" />
   </component>
 </project>

@@ -1,6 +1,6 @@
-package uz.ali;
+package uz.ali.entity;
 
-public class ContactDto {
+public class Contact {
 
     private Integer id;
     private String name;
@@ -8,17 +8,17 @@ public class ContactDto {
     private String phoneNumber;
 
 
-    public ContactDto() {
+    public Contact() {
     }
 
-    public ContactDto(Integer id, String name, String surname, String phoneNumber) {
+    public Contact(Integer id, String name, String surname, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
     }
 
-    public ContactDto(String name, String surname, String phoneNumber) {
+    public Contact(String name, String surname, String phoneNumber) {
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
@@ -58,7 +58,7 @@ public class ContactDto {
 
     @Override
     public String toString() {
-        return "ContactDto{" +
+        return "Contact{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +

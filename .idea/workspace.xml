@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="deleteContact(),getByPhoneNumber(), and deleteContactFromDb() methods added">
+    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="searchContacts() and searchContact()methods added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/uz/ali/service/ContactService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/ContactDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/entity/Contact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/Repo/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/Repo/ContactRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/Repo/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,13 +60,13 @@
       <recent name="uz.ali" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="uz.ali.Main" />
       <module name="ContactManagerJdbcProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uz.ali.*" />
+          <option name="PATTERN" value="uz.ali.entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -77,7 +79,7 @@
       <module name="ContactManagerJdbcProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uz.ali.*" />
+          <option name="PATTERN" value="uz.ali.entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -87,8 +89,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -101,7 +103,8 @@
       <option name="presentableId" value="Default" />
       <updated>1701186057816</updated>
       <workItem from="1701186058887" duration="4221000" />
-      <workItem from="1701580917174" duration="8760000" />
+      <workItem from="1701580917174" duration="9701000" />
+      <workItem from="1701633410644" duration="3193000" />
     </task>
     <task id="LOCAL-00001" summary="Contact Manager project is opened">
       <option name="closed" value="true" />
@@ -143,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701621078274</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="searchContacts() and searchContact()methods added">
+      <option name="closed" value="true" />
+      <created>1701625479590</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701625479591</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +177,7 @@
     <MESSAGE value="Create table method and query is added. Connection with database is launched" />
     <MESSAGE value="addContact() and contactList() methods added" />
     <MESSAGE value="deleteContact(),getByPhoneNumber(), and deleteContactFromDb() methods added" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleteContact(),getByPhoneNumber(), and deleteContactFromDb() methods added" />
+    <MESSAGE value="searchContacts() and searchContact()methods added" />
+    <option name="LAST_COMMIT_MESSAGE" value="searchContacts() and searchContact()methods added" />
   </component>
 </project>

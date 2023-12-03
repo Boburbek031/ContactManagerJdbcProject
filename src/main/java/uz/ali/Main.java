@@ -1,6 +1,8 @@
 package uz.ali;
 
-import uz.ali.Repo.ContactRepository;
+import uz.ali.entity.Contact;
+import uz.ali.repository.ContactRepository;
+import uz.ali.service.ContactService;
 
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +12,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-
+        // Single Responsibility Principle (SRP) in Java is one of the SOLID principles of object-oriented programming.
+        // It emphasizes that a class should have only one reason to change, meaning it should have only one
+        // responsibility or do one thing well.
+        // Dexqonchasiga aytganda, bitta class o'ziga tegishli narsalarni olib javobgarlilarni olib
+        // shu ishini chotki qilishi kerak.
 
         start();
 
@@ -79,51 +85,29 @@ public class Main {
         String surname = scanner.next();
         System.out.print("Enter phone number: ");
         String phone_number = scanner.next();
-        ContactRepository contactRepository = new ContactRepository();
-        boolean savedContact = contactRepository.saveContact(new ContactDto(name, surname, phone_number));
-        if (savedContact) {
-            System.out.println("Contact added");
-        } else
-            System.out.println("Error!");
+        ContactService contactService = new ContactService();
+        contactService.addContact(new Contact(name, surname, phone_number));
     }
 
     public static void contactList() {
-        ContactRepository contactRepository = new ContactRepository();
-        List<ContactDto> allContacts = contactRepository.getAllContacts();
-        // contact bo'masa logika yoz.
-        // search methodida shuni yana ishlatyapman shunga boshqa bitta method qilib
-        // ikkita joyda ishlatadigan qilib optimizatsiya qilib qo'y
-        for (ContactDto allContact : allContacts) {
-            System.out.println("Name: " + allContact.getName() + ", Surname: " + allContact.getSurname()
-                    + ", Phone number: " + allContact.getPhoneNumber());
-        }
+        ContactService contactService = new ContactService();
+        contactService.contactList();
     }
 
 
     public static void deleteContact() {
         System.out.print("Enter phone number:");
         String phoneNumber = scanner.next();
-        ContactRepository contactRepository = new ContactRepository();
-//        ContactDto byPhoneNumber = contactRepository.getByPhoneNumber(phoneNumber);
-//        if (byPhoneNumber != null) {
-        System.out.println(contactRepository.deleteContactFromDb(phoneNumber) == 1 ? "Contact is deleted "
-                : "Contact is not deleted!");
-        //        else {
-//            System.out.println("There is no such Contact!");
-//        }
+        ContactService contactService = new ContactService();
+        contactService.deleteContact(phoneNumber);
     }
 
 
     public static void searchContact() {
         System.out.print("Enter query: ");
         String searchTerm = scanner.next();
-
-        ContactRepository contactRepository = new ContactRepository();
-        List<ContactDto> contactDtoList = contactRepository.searchContacts(searchTerm);
-        for (ContactDto allContact : contactDtoList) {
-            System.out.println("Name: " + allContact.getName() + ", Surname: " + allContact.getSurname()
-                    + ", Phone number: " + allContact.getPhoneNumber());
-        }
+        ContactService contactService = new ContactService();
+        contactService.searchContact(searchTerm);
 
     }
 

@@ -34,7 +34,8 @@ public class Main {
                     contactList();
                     break;
                 case 3:
-                    System.out.println("Delete Contact");
+//                    System.out.println("Delete Contact");
+                    deleteContact();
                     break;
                 case 4:
                     System.out.println("Search");
@@ -86,12 +87,27 @@ public class Main {
     public static void contactList() {
         ContactRepository contactRepository = new ContactRepository();
         List<ContactDto> allContacts = contactRepository.getAllContacts();
-         // contact bo'masa logika yoz.
+        // contact bo'masa logika yoz.
         for (ContactDto allContact : allContacts) {
             System.out.println("Name: " + allContact.getName() + ", Surname: " + allContact.getSurname()
                     + ", Phone number: " + allContact.getPhoneNumber());
         }
     }
+
+
+    public static void deleteContact() {
+        System.out.print("Enter phone number:");
+        String phoneNumber = scanner.next();
+        ContactRepository contactRepository = new ContactRepository();
+//        ContactDto byPhoneNumber = contactRepository.getByPhoneNumber(phoneNumber);
+//        if (byPhoneNumber != null) {
+        System.out.println(contactRepository.deleteContactFromDb(phoneNumber) == 1 ? "Contact is deleted "
+                : "Contact is not deleted!");
+    }
+//        else {
+//            System.out.println("There is no such Contact!");
+//        }
+
 
 
 }

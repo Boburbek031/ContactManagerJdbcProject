@@ -25,6 +25,26 @@ public class ContactRepository {
         }
     }
 
+    public ContactDto getByPhoneNumber(String phoneNumber) {
+        String selectQuery = "select * from contact where phone_number = ?";
+        ContactDto contact = null;
+        try (Connection connection = DatabaseUtil.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
+            preparedStatement.setString(1, phoneNumber);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                contact = new ContactDto(
+                        resultSet.getInt("Id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("surname"),
+                        resultSet.getString("phone_number"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return contact;
+    }
+
 
     public List<ContactDto> getAllContacts() {
         List<ContactDto> contactList = new LinkedList<>();
@@ -48,6 +68,17 @@ public class ContactRepository {
     }
 
 
+    public int deleteContactFromDb(String phoneNumber) {
+        try (Connection connection = DatabaseUtil.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("delete from contact where phone_number = ?")) {
+            preparedStatement.setString(1, phoneNumber);
+            int isDeleted = preparedStatement.executeUpdate();
+            return isDeleted;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
 
 }

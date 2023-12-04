@@ -14,6 +14,19 @@ public class ContactController {
     private Scanner scannerNum = new Scanner(System.in);
     private Scanner scannerStr = new Scanner(System.in);
 
+    public static boolean isValidPhoneNumber(String phoneNumber) {
+        // Basic validation: Check if the phone number is not null and not empty
+        if (phoneNumber == null || phoneNumber.isEmpty()) {
+            return false;
+        }
+
+        // Remove non-digit characters from the phone number
+        String numericPhoneNumber = phoneNumber.replaceAll("[^0-9]", "");
+
+        // Check if the phone number starts with the country code 998 and has a length of 12
+        return numericPhoneNumber.startsWith("998") && numericPhoneNumber.length() == 12;
+    }
+
     public boolean checkIfNumber(String input) {
         try {
             // Attempt to parse the input as an integer
@@ -33,11 +46,11 @@ public class ContactController {
             showMenu();
             switch (getAction()) {
                 case 1:
-                    System.out.println(" ************* Add a contact *************");
+                    System.out.println("\n ************* Add a contact *************");
                     addContact();
                     break;
                 case 2:
-//                    System.out.println("ContactDto List");
+                    System.out.println("************* Contact list *************");
                     contactList();
                     break;
                 case 3:
@@ -53,7 +66,7 @@ public class ContactController {
                     start = false;
                     break;
                 default:
-                    System.out.println("\n Please, choose one of the following menus below!\n");
+                    System.out.println("\n Please, choose one of the following menus below!");
             }
         }
     }
@@ -75,18 +88,31 @@ public class ContactController {
                 return Integer.parseInt(chosenMenu);
             } else {
                 showMenu();
-                System.out.println("\n Please, choose one of the following menus above!\n");
+                System.out.println("\n Please, choose one of the following menus above!");
             }
         }
     }
 
     public void addContact() {
-        System.out.print("Enter name: ");
-        String name = scannerStr.next();
-        System.out.print("Enter surname: ");
-        String surname = scannerStr.next();
-        System.out.print("Enter phone number: ");
-        String phone_number = scannerStr.next();
+        scannerStr = new Scanner(System.in);
+        System.out.print("Enter contact name: ");
+        String name = scannerStr.nextLine();
+        System.out.print("Enter contact surname: ");
+        String surname = scannerStr.nextLine();
+
+        boolean validPhoneNumber = false;
+        String phone_number = "";
+        while (!validPhoneNumber) {
+            System.out.print("Enter phone number: ");
+            phone_number = scannerStr.nextLine();
+
+            validPhoneNumber = isValidPhoneNumber(phone_number);
+
+            if (!validPhoneNumber) {
+                System.out.println("Please, enter a valid phone number!");
+            }
+        }
+
         contactService.addContact(new ContactDto(name, surname, phone_number));
     }
 

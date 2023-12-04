@@ -25,15 +25,15 @@ public class ContactRepository {
         }
     }
 
-    public ContactDto getByPhoneNumber(String phoneNumber) {
+    public ContactDto getContactByPhoneNumber(String phoneNumber) {
         String selectQuery = "select * from contact where phone_number = ?";
-        ContactDto contactDto = null;
+        ContactDto contact = null;
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
             preparedStatement.setString(1, phoneNumber);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                contactDto = new ContactDto(
+                contact = new ContactDto(
                         resultSet.getInt("Id"),
                         resultSet.getString("name"),
                         resultSet.getString("surname"),
@@ -42,7 +42,7 @@ public class ContactRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return contactDto;
+        return contact;
     }
 
 

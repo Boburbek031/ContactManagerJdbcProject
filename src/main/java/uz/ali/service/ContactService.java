@@ -11,14 +11,14 @@ public class ContactService {
 
     private ContactRepository contactRepository = new ContactRepository();
 
-    public void addContact(ContactDto contactDto) {
-        ContactDto contactDtoExists = contactRepository.getByPhoneNumber(contactDto.getPhoneNumber());
+    public void addContact(ContactDto contact) {
+        ContactDto contactDtoExists = contactRepository.getContactByPhoneNumber(contact.getPhoneNumber());
         if (contactDtoExists != null) {
-            System.out.println("Bu telefon raqamlik ContactDto bor.");
+            System.out.println("Bu telefon raqamlik Contact bor.");
         } else {
-            boolean savedContact = contactRepository.saveContact(contactDto);
+            boolean savedContact = contactRepository.saveContact(contact);
             if (savedContact) {
-                System.out.println("ContactDto added");
+                System.out.println("Contact added");
             } else
                 System.out.println("Error!");
         }
@@ -37,7 +37,7 @@ public class ContactService {
 
 
     public void deleteContact(String phoneNumber) {
-//        ContactDto byPhoneNumber = contactRepository.getByPhoneNumber(phoneNumber);
+//        ContactDto byPhoneNumber = contactRepository.getContactByPhoneNumber(phoneNumber);
 //        if (byPhoneNumber != null) {
         System.out.println(contactRepository.deleteContactFromDb(phoneNumber) == 1 ? "ContactDto is deleted "
                 : "ContactDto is not deleted!");

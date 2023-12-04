@@ -14,18 +14,26 @@ public class ContactController {
     private Scanner scannerNum = new Scanner(System.in);
     private Scanner scannerStr = new Scanner(System.in);
 
+    public boolean checkIfNumber(String input) {
+        try {
+            // Attempt to parse the input as an integer
+            Integer.parseInt(input);
+            return true; // If successful, it's a number
+        } catch (NumberFormatException e) {
+            return false; // If an exception occurs, it's not a number
+        }
+    }
+
     public void start() {
         DatabaseUtil.createTable();
 
-        boolean b = true;
+        boolean start = true;
 
-        while (b) {
+        while (start) {
             showMenu();
-            int action = getAction();
-
-            switch (action) {
+            switch (getAction()) {
                 case 1:
-//                    System.out.println("Add contact");
+                    System.out.println(" ************* Add a contact *************");
                     addContact();
                     break;
                 case 2:
@@ -42,31 +50,34 @@ public class ContactController {
                     break;
                 case 0:
                     System.out.println("Exit");
-                    b = false;
+                    start = false;
                     break;
                 default:
-                    b = false;
-
+                    System.out.println("\n Please, choose one of the following menus below!\n");
             }
         }
-
     }
-
 
     public void showMenu() {
-        System.out.println("\t****** Welcome to ContactDto Manager project **** \n \t\t\t ***** Menu ***** ");
-        System.out.println("1. Add contact");
-        System.out.println("2. ContactDto list");
-        System.out.println("3. Delete contact");
-        System.out.println("4. Search contact");
-        System.out.println("0. Exit");
-
+        System.out.println("\t****** Welcome to Contact Manager project **** \n \t\t\t ***** Menu ***** ");
+        System.out.println("1. Add a contact.");
+        System.out.println("2. See all contact list.");
+        System.out.println("3. Delete a contact.");
+        System.out.println("4. Search a contact.");
+        System.out.println("0. Exit.");
     }
 
-
     public int getAction() {
-        System.out.print("Enter action: ");
-        return scannerNum.nextInt();
+        while (true) {
+            System.out.print("Choose one of the actions above: ");
+            String chosenMenu = scannerStr.next();
+            if (checkIfNumber(chosenMenu)) {
+                return Integer.parseInt(chosenMenu);
+            } else {
+                showMenu();
+                System.out.println("\n Please, choose one of the following menus above!\n");
+            }
+        }
     }
 
     public void addContact() {

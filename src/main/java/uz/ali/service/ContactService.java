@@ -12,15 +12,16 @@ public class ContactService {
     private ContactRepository contactRepository = new ContactRepository();
 
     public void addContact(ContactDto contact) {
-        ContactDto contactDtoExists = contactRepository.getContactByPhoneNumber(contact.getPhoneNumber());
-        if (contactDtoExists != null) {
-            System.out.println("Bu telefon raqamlik Contact bor.");
+        ContactDto contactExists = contactRepository.getContactByPhoneNumber(contact.getPhoneNumber());
+        if (contactExists != null) {
+            System.out.println("There is a contact with such phone number " + contactExists.getPhoneNumber());
         } else {
             boolean savedContact = contactRepository.saveContact(contact);
             if (savedContact) {
-                System.out.println("Contact added");
-            } else
-                System.out.println("Error!");
+                System.out.println("Contact saved.");
+            } else {
+                System.out.println("Error in saving contact!");
+            }
         }
     }
 
@@ -55,6 +56,8 @@ public class ContactService {
         }
 
     }
+
+
 
 
 }

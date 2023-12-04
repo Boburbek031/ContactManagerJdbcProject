@@ -94,11 +94,8 @@ public class ContactController {
     }
 
     public void addContact() {
-        scannerStr = new Scanner(System.in);
-        System.out.print("Enter contact name: ");
-        String name = scannerStr.nextLine();
-        System.out.print("Enter contact surname: ");
-        String surname = scannerStr.nextLine();
+        String name = getNonEmptyInput("Enter contact name: ");
+        String surname = getNonEmptyInput("Enter contact surname: ");
 
         boolean validPhoneNumber = false;
         String phone_number = "";
@@ -109,7 +106,7 @@ public class ContactController {
             validPhoneNumber = isValidPhoneNumber(phone_number);
 
             if (!validPhoneNumber) {
-                System.out.println("Please, enter a valid phone number!");
+                System.out.println("\nPlease, enter a valid phone number!");
             }
         }
 
@@ -132,6 +129,19 @@ public class ContactController {
         System.out.print("Enter query: ");
         String searchTerm = scannerStr.next();
         contactService.searchContact(searchTerm);
+    }
+
+    public String getNonEmptyInput(String message) {
+        scannerStr = new Scanner(System.in);
+        String input;
+        do {
+            System.out.print(message);
+            input = scannerStr.nextLine().trim();
+            if (input.isEmpty()) {
+                System.out.println("\nInput cannot be empty!");
+            }
+        } while (input.isEmpty());
+        return input;
     }
 
 

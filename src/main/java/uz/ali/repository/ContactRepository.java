@@ -10,17 +10,16 @@ import java.util.List;
 // repository ni asosiy vazifasi database bilan ishlash
 public class ContactRepository {
 
-    public boolean saveContact(ContactDto contactDto) {
+    public boolean saveContact(ContactDto contact) {
         String insertContactQuery = "insert into contact(name, surname, phone_number) values (?, ?, ?)";
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(insertContactQuery)) {
-            preparedStatement.setString(1, contactDto.getName());
-            preparedStatement.setString(2, contactDto.getSurname());
-            preparedStatement.setString(3, contactDto.getPhoneNumber());
-            preparedStatement.executeUpdate();
-            return true;
+            preparedStatement.setString(1, contact.getName());
+            preparedStatement.setString(2, contact.getSurname());
+            preparedStatement.setString(3, contact.getPhoneNumber());
+            return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error while saving contact: " + e.getMessage());
             return false;
         }
     }
@@ -30,14 +29,13 @@ public class ContactRepository {
         ContactDto contact = null;
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
+
             preparedStatement.setString(1, phoneNumber);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                contact = new ContactDto(
-                        resultSet.getInt("Id"),
-                        resultSet.getString("name"),
-                        resultSet.getString("surname"),
-                        resultSet.getString("phone_number"));
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet != null && resultSet.next()) {
+                    contact = createContactFromResultSet(resultSet);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -110,5 +108,17 @@ public class ContactRepository {
         return contactDtos;
     }
 
+    private ContactDto createContactFromResultSet(ResultSet resultSet) {
+        try {
+            return new ContactDto(
+                    resultSet.getInt("Id"),
+                    resultSet.getString("name"),
+                    resultSet.getString("surname"),
+                    resultSet.getString("phone_number"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }

@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="Optimizing code, creating global objects like ContactRepository, ContactService and making scanner global and reusable.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/controller/ContactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/entity/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/dto/ContactDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/service/ContactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/service/ContactService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/db/DatabaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/db/DatabaseUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +104,7 @@
       <workItem from="1701186058887" duration="4221000" />
       <workItem from="1701580917174" duration="9701000" />
       <workItem from="1701633410644" duration="6844000" />
+      <workItem from="1701704091476" duration="1098000" />
     </task>
     <task id="LOCAL-00001" summary="Contact Manager project is opened">
       <option name="closed" value="true" />

@@ -7,7 +7,6 @@ import java.sql.Statement;
 
 public class DatabaseUtil {
 
-
     public static void createTable() {
         String sqlCreateTableQuery = "create table if not exists contact (" +
                 "id serial primary key," +
@@ -15,14 +14,13 @@ public class DatabaseUtil {
                 "surname varchar (25) not null," +
                 "phoneNumber varchar (15) not null unique" +
                 ");";
-        try (Connection connection = DatabaseUtil.getConnection()) {
-            Statement statement = connection.createStatement();
+        try (Connection connection = DatabaseUtil.getConnection();
+             Statement statement = connection.createStatement()) {
+
             statement.executeUpdate(sqlCreateTableQuery);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error creating table: " + e.getMessage(), e);
         }
-
-
     }
 
     public static Connection getConnection() {

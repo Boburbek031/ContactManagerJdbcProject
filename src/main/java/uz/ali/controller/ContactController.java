@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 // Controller classini asosiy vazifasi, user dan malumotlarni olib Service classiga bervorish.
 public class ContactController {
+
     // Optimizatsiya qilingan variyamnti ham vaqtdan yutamiz ham hotiradan
     private ContactService contactService = new ContactService();
     private Scanner scannerNum = new Scanner(System.in);

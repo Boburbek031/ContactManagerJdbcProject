@@ -31,7 +31,7 @@ public class ContactRepository {
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
 
-            preparedStatement.setString(1, phoneNumber.replaceAll("[^0-9]", ""));
+            preparedStatement.setString(1, phoneNumber);
 
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet != null && resultSet.next()) {
@@ -68,12 +68,11 @@ public class ContactRepository {
 
     public int deleteContactFromDb(String phoneNumber) {
         try (Connection connection = DatabaseUtil.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("delete from contact where phone_number = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM contact WHERE phone_number = ?")) {
             preparedStatement.setString(1, phoneNumber);
-            int isDeleted = preparedStatement.executeUpdate();
-            return isDeleted;
+            return preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Consider logging the error or handling it appropriately
         }
         return 0;
     }

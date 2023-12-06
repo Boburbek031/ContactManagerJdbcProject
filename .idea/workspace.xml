@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="getNonEmptyInput method is added and addContact part is fully completed (with all verifications).">
+    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="GetAllContacts Section is optimized and fully completed, some errors are fixed in the section of add contact">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/controller/ContactController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" afterDir="false" />
@@ -105,7 +105,7 @@
       <workItem from="1701580917174" duration="9701000" />
       <workItem from="1701633410644" duration="6844000" />
       <workItem from="1701704091476" duration="9488000" />
-      <workItem from="1701892749018" duration="4925000" />
+      <workItem from="1701892749018" duration="6172000" />
     </task>
     <task id="LOCAL-00001" summary="Contact Manager project is opened">
       <option name="closed" value="true" />
@@ -211,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701714055442</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="GetAllContacts Section is optimized and fully completed, some errors are fixed in the section of add contact">
+      <option name="closed" value="true" />
+      <created>1701898928858</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701898928858</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +250,8 @@
     <MESSAGE value="getAction method is changed and optimized and checkIfNumber method is added for verification" />
     <MESSAGE value="isValidPhoneNumber method is added for phone verification" />
     <MESSAGE value="getNonEmptyInput method is added and addContact part is fully completed (with all verifications)." />
-    <option name="LAST_COMMIT_MESSAGE" value="getNonEmptyInput method is added and addContact part is fully completed (with all verifications)." />
+    <MESSAGE value="GetAllContacts Section is optimized and fully completed, some errors are fixed in the section of add contact" />
+    <option name="LAST_COMMIT_MESSAGE" value="GetAllContacts Section is optimized and fully completed, some errors are fixed in the section of add contact" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

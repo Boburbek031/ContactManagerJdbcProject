@@ -55,7 +55,7 @@ public class ContactController {
                     contactList();
                     break;
                 case 3:
-//                    System.out.println("Delete ContactDto");
+                    System.out.println("************* Delete Contact *************");
                     deleteContact();
                     break;
                 case 4:
@@ -98,21 +98,22 @@ public class ContactController {
         String name = getNonEmptyInput("Enter contact name: ");
         String surname = getNonEmptyInput("Enter contact surname: ");
 
-        boolean validPhoneNumber = false;
-        String phone_number = "";
-        while (!validPhoneNumber) {
-            System.out.print("Enter phone number: ");
-            phone_number = scannerStr.nextLine();
-
-            validPhoneNumber = isValidPhoneNumber(phone_number);
-
-            if (!validPhoneNumber) {
-                System.out.println("\nPlease, enter a valid phone number!");
-            }
-        }
+        String phone_number = getValidPhoneNumber();
         contactService.addContact(new ContactDto(name, surname, phone_number));
     }
 
+    private String getValidPhoneNumber() {
+        scannerStr = new Scanner(System.in);
+        String phone_number;
+        do {
+            System.out.print("Enter phone number: ");
+            phone_number = scannerStr.nextLine();
+            if (!isValidPhoneNumber(phone_number)) {
+                System.out.println("Please enter a valid phone number!");
+            }
+        } while (!isValidPhoneNumber(phone_number));
+        return phone_number;
+    }
 
     public void contactList() {
         contactService.contactList();
@@ -120,9 +121,8 @@ public class ContactController {
 
 
     public void deleteContact() {
-        System.out.print("Enter phone number:");
-        String phoneNumber = scannerStr.next();
-        contactService.deleteContact(phoneNumber);
+        String validPhoneNumber = getValidPhoneNumber();
+        contactService.deleteContact(validPhoneNumber);
     }
 
 

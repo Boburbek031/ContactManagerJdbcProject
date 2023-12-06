@@ -13,7 +13,7 @@ public class ContactService {
     private final ContactRepository contactRepository = new ContactRepository();
 
     public void addContact(ContactDto contact) {
-        ContactDto contactExists = contactRepository.getContactByPhoneNumber(contact.getPhoneNumber());
+        ContactDto contactExists = contactRepository.getContactByPhoneNumber(contact.getPhoneNumber().replaceAll("[^0-9]", ""));
         if (contactExists != null) {
             System.out.println("There is a contact with such phone number " + contactExists.getPhoneNumber());
         } else {
@@ -50,13 +50,8 @@ public class ContactService {
 
 
     public void deleteContact(String phoneNumber) {
-//        ContactDto byPhoneNumber = contactRepository.getContactByPhoneNumber(phoneNumber);
-//        if (byPhoneNumber != null) {
-        System.out.println(contactRepository.deleteContactFromDb(phoneNumber) == 1 ? "ContactDto is deleted "
-                : "ContactDto is not deleted!");
-        //        else {
-//            System.out.println("There is no such ContactDto!");
-//        }
+        System.out.println(contactRepository.deleteContactFromDb(phoneNumber.replaceAll("[^0-9]", "")) == 1 ? "Contact is deleted "
+                : "Contact is not deleted!");
     }
 
 

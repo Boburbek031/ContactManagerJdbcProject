@@ -4,6 +4,7 @@ import uz.ali.dto.ContactDto;
 import uz.ali.db.DatabaseUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class ContactRepository {
              PreparedStatement preparedStatement = connection.prepareStatement(insertContactQuery)) {
             preparedStatement.setString(1, contact.getName());
             preparedStatement.setString(2, contact.getSurname());
-            preparedStatement.setString(3, contact.getPhoneNumber());
+            preparedStatement.setString(3, contact.getPhoneNumber().replaceAll("[^0-9]", ""));
             return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("Error while saving contact: " + e.getMessage());
@@ -30,7 +31,7 @@ public class ContactRepository {
         try (Connection connection = DatabaseUtil.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
 
-            preparedStatement.setString(1, phoneNumber);
+            preparedStatement.setString(1, phoneNumber.replaceAll("[^0-9]", ""));
 
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet != null && resultSet.next()) {
@@ -45,24 +46,23 @@ public class ContactRepository {
 
 
     public List<ContactDto> getAllContacts() {
-        List<ContactDto> contactDtoList = new LinkedList<>();
+        List<ContactDto> contactList = new ArrayList<>();
         try (Connection connection = DatabaseUtil.getConnection();
-             Statement statement = connection.createStatement()) {
-            ContactDto contactDto = null;
-            ResultSet resultSet = statement.executeQuery("select * from contact");
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM contact");
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
             while (resultSet.next()) {
-                contactDto = new ContactDto(
+                ContactDto contact = new ContactDto(
                         resultSet.getInt("Id"),
                         resultSet.getString("name"),
                         resultSet.getString("surname"),
                         resultSet.getString("phone_number"));
-                contactDtoList.add(contactDto);
+                contactList.add(contact);
             }
-            return contactDtoList;
         } catch (SQLException e) {
-            e.printStackTrace();
-            return contactDtoList;
+            e.printStackTrace(); // Consider logging the error or handling it appropriately
         }
+        return contactList;
     }
 
 

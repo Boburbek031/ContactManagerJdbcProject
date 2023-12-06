@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="isValidPhoneNumber method is added for phone verification">
+    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="getNonEmptyInput method is added and addContact part is fully completed (with all verifications).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/controller/ContactController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" afterDir="false" />
@@ -104,7 +104,8 @@
       <workItem from="1701186058887" duration="4221000" />
       <workItem from="1701580917174" duration="9701000" />
       <workItem from="1701633410644" duration="6844000" />
-      <workItem from="1701704091476" duration="9170000" />
+      <workItem from="1701704091476" duration="9488000" />
+      <workItem from="1701892749018" duration="4925000" />
     </task>
     <task id="LOCAL-00001" summary="Contact Manager project is opened">
       <option name="closed" value="true" />
@@ -202,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701711242918</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="getNonEmptyInput method is added and addContact part is fully completed (with all verifications).">
+      <option name="closed" value="true" />
+      <created>1701714055442</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701714055442</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +241,18 @@
     <MESSAGE value="Optimizing DatabaseUtil class, createTable() method. Adding error messages" />
     <MESSAGE value="getAction method is changed and optimized and checkIfNumber method is added for verification" />
     <MESSAGE value="isValidPhoneNumber method is added for phone verification" />
-    <option name="LAST_COMMIT_MESSAGE" value="isValidPhoneNumber method is added for phone verification" />
+    <MESSAGE value="getNonEmptyInput method is added and addContact part is fully completed (with all verifications)." />
+    <option name="LAST_COMMIT_MESSAGE" value="getNonEmptyInput method is added and addContact part is fully completed (with all verifications)." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

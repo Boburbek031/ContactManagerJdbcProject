@@ -22,9 +22,10 @@ public class ContactController {
 
         // Remove non-digit characters from the phone number
         String numericPhoneNumber = phoneNumber.replaceAll("[^0-9]", "");
+        String trimPhoneNumber = numericPhoneNumber.trim();
 
         // Check if the phone number starts with the country code 998 and has a length of 12
-        return numericPhoneNumber.startsWith("998") && numericPhoneNumber.length() == 12;
+        return trimPhoneNumber.startsWith("998") && trimPhoneNumber.length() == 12;
     }
 
     public boolean checkIfNumber(String input) {
@@ -109,9 +110,9 @@ public class ContactController {
                 System.out.println("\nPlease, enter a valid phone number!");
             }
         }
-
         contactService.addContact(new ContactDto(name, surname, phone_number));
     }
+
 
     public void contactList() {
         contactService.contactList();

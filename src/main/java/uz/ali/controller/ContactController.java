@@ -59,7 +59,7 @@ public class ContactController {
                     deleteContact();
                     break;
                 case 4:
-//                    System.out.println("Search");
+                    System.out.println("************* Search *************");
                     searchContact();
                     break;
                 case 0:
@@ -116,7 +116,7 @@ public class ContactController {
     }
 
     public void contactList() {
-        contactService.contactList();
+        contactService.getContactList();
     }
 
 
@@ -127,8 +127,7 @@ public class ContactController {
 
 
     public void searchContact() {
-        System.out.print("Enter query: ");
-        String searchTerm = scannerStr.next();
+        String searchTerm = getNonEmptyInput("Enter search term (name, surname, or phone number): ");
         contactService.searchContact(searchTerm);
     }
 

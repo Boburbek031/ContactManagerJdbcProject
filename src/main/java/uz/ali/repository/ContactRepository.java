@@ -79,32 +79,29 @@ public class ContactRepository {
 
 
     public List<ContactDto> searchContacts(String searchTerm) {
-        // ali ==> alish, alisher, alixon, alisattor ....
-        // 066 ==> 0662414, 0661475 ....
+        List<ContactDto> contactList = new ArrayList<>();
+        String query = "SELECT * FROM contact WHERE LOWER(name) LIKE LOWER(?) OR LOWER(surname) LIKE LOWER(?) OR phone_number LIKE ?;";
 
-        ContactDto contactDto = null;
-        List<ContactDto> contactDtos = new LinkedList<>();
-        try (Connection connection = DatabaseUtil.getConnection()) {
-            // Prepare the SQL query to search for contactDtos (case-insensitive)
-            String query = "SELECT * FROM contact WHERE LOWER(name) LIKE LOWER(?) OR LOWER(surname) LIKE LOWER(?) OR phone_number LIKE ?;";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, "%" + searchTerm + "%");
-            preparedStatement.setString(2, "%" + searchTerm + "%");
-            preparedStatement.setString(3, "%" + searchTerm + "%");
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                // Assuming ContactDto class with appropriate fields (name, surname, phone number)
-                contactDto = new ContactDto();
-                contactDto.setId(resultSet.getInt("id"));
-                contactDto.setName(resultSet.getString("name"));
-                contactDto.setSurname(resultSet.getString("surname"));
-                contactDto.setPhoneNumber(resultSet.getString("phone_number"));
-                contactDtos.add(contactDto);
+        try (Connection connection = DatabaseUtil.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            String likeTerm = "%" + searchTerm.toLowerCase() + "%";
+            preparedStatement.setString(1, likeTerm);
+            preparedStatement.setString(2, likeTerm);
+            preparedStatement.setString(3, likeTerm);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    ContactDto contact = createContactFromResultSet(resultSet);
+                    if (contact != null) {
+                        contactList.add(contact);
+                    }
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return contactDtos;
+        return contactList;
     }
 
     private ContactDto createContactFromResultSet(ResultSet resultSet) {

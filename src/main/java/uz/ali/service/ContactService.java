@@ -1,6 +1,5 @@
 package uz.ali.service;
 
-import uz.ali.controller.ContactController;
 import uz.ali.dto.ContactDto;
 import uz.ali.repository.ContactRepository;
 
@@ -26,26 +25,9 @@ public class ContactService {
         }
     }
 
-    public void contactList() {
+    public void getContactList() {
         List<ContactDto> allContacts = contactRepository.getAllContacts();
-
-        // search methodida shuni yana ishlatyapman shunga boshqa bitta method qilib
-        // ikkita joyda ishlatadigan qilib optimizatsiya qilib qo'y
-
-        if (allContacts.isEmpty()) {
-            System.out.println("No contacts available.");
-        } else {
-            System.out.println("------------------------------------------------------");
-            System.out.println("|     Name       |    Surname     |   Phone number      |");
-            System.out.println("------------------------------------------------------");
-
-            for (ContactDto contactDto : allContacts) {
-                String formattedContact = String.format("| %-15s| %-15s| %-20s|",
-                        contactDto.getName(), contactDto.getSurname(), contactDto.getPhoneNumber());
-                System.out.println(formattedContact);
-            }
-            System.out.println("------------------------------------------------------");
-        }
+        printContactList(allContacts);
     }
 
 
@@ -56,12 +38,29 @@ public class ContactService {
 
 
     public void searchContact(String searchTerm) {
-        List<ContactDto> contactDtoList = contactRepository.searchContacts(searchTerm);
-        for (ContactDto allContactDto : contactDtoList) {
-            System.out.println("Name: " + allContactDto.getName() + ", Surname: " + allContactDto.getSurname()
-                    + ", Phone number: " + allContactDto.getPhoneNumber());
+        List<ContactDto> contactList = contactRepository.searchContacts(searchTerm);
+        if (!contactList.isEmpty()) {
+            printContactList(contactList);
+        } else {
+            System.out.println("No matching contacts found.");
         }
+    }
 
+    public void printContactList(List<ContactDto> contactList) {
+        if (contactList.isEmpty()) {
+            System.out.println("No contacts available.");
+        } else {
+            System.out.println("------------------------------------------------------");
+            System.out.println("|     Name       |    Surname     |   Phone number      |");
+            System.out.println("------------------------------------------------------");
+
+            for (ContactDto contactDto : contactList) {
+                String formattedContact = String.format("| %-15s| %-15s| %-20s|",
+                        contactDto.getName(), contactDto.getSurname(), contactDto.getPhoneNumber());
+                System.out.println(formattedContact);
+            }
+            System.out.println("------------------------------------------------------");
+        }
     }
 
 

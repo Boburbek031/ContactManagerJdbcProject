@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="GetAllContacts Section is optimized and fully completed, some errors are fixed in the section of add contact">
+    <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="DeleteContact Section is optimized">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/controller/ContactController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" afterDir="false" />
@@ -105,7 +105,8 @@
       <workItem from="1701580917174" duration="9701000" />
       <workItem from="1701633410644" duration="6844000" />
       <workItem from="1701704091476" duration="9488000" />
-      <workItem from="1701892749018" duration="6172000" />
+      <workItem from="1701892749018" duration="6882000" />
+      <workItem from="1701928818517" duration="1439000" />
     </task>
     <task id="LOCAL-00001" summary="Contact Manager project is opened">
       <option name="closed" value="true" />
@@ -219,11 +220,30 @@
       <option name="project" value="LOCAL" />
       <updated>1701898928858</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="DeleteContact Section is optimized">
+      <option name="closed" value="true" />
+      <created>1701900163026</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701900163026</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -251,7 +271,8 @@
     <MESSAGE value="isValidPhoneNumber method is added for phone verification" />
     <MESSAGE value="getNonEmptyInput method is added and addContact part is fully completed (with all verifications)." />
     <MESSAGE value="GetAllContacts Section is optimized and fully completed, some errors are fixed in the section of add contact" />
-    <option name="LAST_COMMIT_MESSAGE" value="GetAllContacts Section is optimized and fully completed, some errors are fixed in the section of add contact" />
+    <MESSAGE value="DeleteContact Section is optimized" />
+    <option name="LAST_COMMIT_MESSAGE" value="DeleteContact Section is optimized" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

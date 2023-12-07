@@ -73,7 +73,7 @@ public class ContactController {
     }
 
     public void showMenu() {
-        System.out.println("\t****** Welcome to Contact Manager project **** \n \t\t\t ***** Menu ***** ");
+        System.out.println("\n\t****** Welcome to Contact Manager project **** \n \t\t\t ***** Menu ***** ");
         System.out.println("1. Add a contact.");
         System.out.println("2. See all contact list.");
         System.out.println("3. Delete a contact.");

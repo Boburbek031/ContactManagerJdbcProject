@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f74406f8-ae2c-486f-9a12-61a35d0eef05" name="Changes" comment="DeleteContact Section is optimized">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/controller/ContactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/repository/ContactRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/ali/service/ContactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/ali/service/ContactService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +105,7 @@
       <workItem from="1701704091476" duration="9488000" />
       <workItem from="1701892749018" duration="6882000" />
       <workItem from="1701928818517" duration="1439000" />
+      <workItem from="1701959313231" duration="301000" />
     </task>
     <task id="LOCAL-00001" summary="Contact Manager project is opened">
       <option name="closed" value="true" />
